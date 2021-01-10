@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb://andresetiawan_as:123@devconnector-shard-00-00.2tfuh.mongodb.net:27017,devconnector-shard-00-01.2tfuh.mongodb.net:27017,devconnector-shard-00-02.2tfuh.mongodb.net:27017/DevDonnector?ssl=true&replicaSet=atlas-70v17o-shard-0&authSource=admin&retryWrites=true&w=majority"
+    "mongoURI": "mongodb://andresetiawan_as:123@devconnector-shard-00-00.2tfuh.mongodb.net:27017,devconnector-shard-00-01.2tfuh.mongodb.net:27017,devconnector-shard-00-02.2tfuh.mongodb.net:27017/DevDonnector?ssl=true&replicaSet=atlas-70v17o-shard-0&authSource=admin&retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
 }
