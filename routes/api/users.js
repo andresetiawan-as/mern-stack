@@ -2,12 +2,11 @@ const express = require('express')
 const router = express.Router()
 const gravatar = require('gravatar')
 const bycrypt = require('bcryptjs')
-
 const jwt = require('jsonwebtoken')
 const config = require('config')
-
 const{ check, validationResult } = require('express-validator')
 
+// Model Schema
 const User = require('../../models/User')
 
 // @route   POST api/users
@@ -21,6 +20,7 @@ router.post('/', [
     check('password', 'Please enter a password with 6 or more characters').isLength({min: 6})
 ], 
 async (req, res) => {
+    // Checking error from body req
     const errors = validationResult(req)
     if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array()});
@@ -29,7 +29,7 @@ async (req, res) => {
 
     try {
         // See if user exists
-        let user = await User.findOne({email: email});
+        let user = await User.findOne({email});
         if(user){
             return res.status(400).json({errors: [{msg: 'User already exists'}] });
         }
@@ -73,8 +73,6 @@ async (req, res) => {
         console.log(err.message);
         res.status(500).send('Server error');
     }
-
-
 })
 
 module.exports = router
